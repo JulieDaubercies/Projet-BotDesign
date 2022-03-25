@@ -6,22 +6,29 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-protocol CitiesNetworkServiceDelegate: AnyObject {
-    func didCompleteRequest(result: [MainData])
-}
+//protocol CitiesNetworkServiceDelegate: AnyObject {
+//    func didCompleteRequest(result: [MainData])
+//}
 
 class ListViewModel {
     
+    var items = PublishSubject<[MainData]>()
+    
     private var apiCallsService = APICalls()
-    var delegate: CitiesNetworkServiceDelegate?
+   // var delegate: CitiesNetworkServiceDelegate?
     
     func launchListOfCities() {
         apiCallsService.getCities { [weak self] result in
             DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let list):
-                    self?.delegate?.didCompleteRequest(result: list)
+                   // self?.delegate?.didCompleteRequest(result: list)
+                    let products = list
+                    self?.items.onNext(products)
+                    self?.items.onCompleted()
                 case .failure(let error):
                     print(error)
                 }

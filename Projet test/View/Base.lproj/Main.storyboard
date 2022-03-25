@@ -37,8 +37,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="SR2-ud-tdP" id="rXr-Dj-Cul"/>
-                            <outlet property="delegate" destination="SR2-ud-tdP" id="o8Y-8O-NgL"/>
+                            <outlet property="dataSource" destination="SR2-ud-tdP" id="DYb-rL-1C3"/>
+                            <outlet property="delegate" destination="SR2-ud-tdP" id="rS9-Em-cU6"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Villes de la Haute-Garonne" id="ha0-FY-bpt"/>

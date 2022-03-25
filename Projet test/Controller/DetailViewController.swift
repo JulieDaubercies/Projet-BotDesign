@@ -14,13 +14,11 @@ class DetailViewController: UIViewController {
     @IBOutlet var populationLabel: UILabel!
     @IBOutlet var surfaceLabel: UILabel!
     var viewModel = DetailViewModel()
-    var item = [MainData]()
-    var entityIndexPath: Int!
+    var item: MainData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.item = item
-        viewModel.entityIndexPath = entityIndexPath
         viewModel.loadCityData()
         
         viewModel.cityName.bind { [weak self] city in
@@ -36,7 +34,5 @@ class DetailViewController: UIViewController {
             self?.surfaceLabel.text = sizeSurface
         }
     }
-
-
 }
 
