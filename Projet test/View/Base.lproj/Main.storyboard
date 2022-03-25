@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ville de la Haute-Garonne-->
+        <!--Villes de la Haute-Garonne-->
         <scene sceneID="j1c-pa-vsk">
             <objects>
                 <tableViewController id="SR2-ud-tdP" customClass="TableViewController" customModule="Projet_test" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +41,7 @@
                             <outlet property="delegate" destination="SR2-ud-tdP" id="o8Y-8O-NgL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ville de la Haute-Garonne" id="ha0-FY-bpt"/>
+                    <navigationItem key="navigationItem" title="Villes de la Haute-Garonne" id="ha0-FY-bpt"/>
                     <connections>
                         <segue destination="mDf-SW-kmf" kind="show" id="ZBa-VV-rX3"/>
                     </connections>

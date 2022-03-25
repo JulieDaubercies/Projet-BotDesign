@@ -13,28 +13,28 @@ class DetailViewController: UIViewController {
     @IBOutlet var postalCodeLabel: UILabel!
     @IBOutlet var populationLabel: UILabel!
     @IBOutlet var surfaceLabel: UILabel!
+    var viewModel = DetailViewModel()
     var item = [MainData]()
     var entityIndexPath: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let postalCodeList = item[entityIndexPath].codesPostaux.joined(separator: "\n")
+        viewModel.item = item
+        viewModel.entityIndexPath = entityIndexPath
+        viewModel.loadCityData()
         
-        cityNameLabel.text = item[entityIndexPath].nom.uppercased()
-        + "\n"
-        + "\nHaute-Garonne"
-        + "\nOccitanie"
-        
-        if item[entityIndexPath].codesPostaux.count == 1 {
-            postalCodeLabel.text = "Code Postal: "
-            + "\n\(item[entityIndexPath].codesPostaux[0])"
-        } else {
-            postalCodeLabel.text = "Codes Postaux: "
-            + "\n\(postalCodeList)"
+        viewModel.cityName.bind { [weak self] city in
+            self?.cityNameLabel.text = city
         }
-       
-        populationLabel.text = "Population: " + String(item[entityIndexPath].population) + " Habitants"
-        surfaceLabel.text = "Surface: " + String(item[entityIndexPath].surface) + " m²"
+        viewModel.postalCode.bind { [weak self] postal in
+            self?.postalCodeLabel.text = postal
+        }
+        viewModel.population.bind { [weak self] people in
+            self?.populationLabel.text = people
+        }
+        viewModel.surface.bind { [weak self] sizeSurface in
+            self?.surfaceLabel.text = sizeSurface
+        }
     }
 
 
