@@ -7,53 +7,34 @@
 
 import Foundation
 
-class DetailViewModel {
+final class DetailViewModel {
     
-    var item: MainData!
+    // MARK: - Properties
     
+    var item: MainData?
     var cityName: Box<String> = Box("")
     var postalCode: Box<String> = Box("")
     var population: Box<String> = Box("")
     var surface: Box<String> = Box("")
     
+    // MARK: - Method
+    
     func loadCityData() {
-        let postalCodeList = item.codesPostaux.joined(separator: "\n")
-        
-        cityName.value = item.nom.uppercased()
+        guard let city = item else { return }
+        let postalCodeList = city.codesPostaux.joined(separator: "\n")
+        cityName.value = city.nom.uppercased()
         + "\n"
         + "\nHaute-Garonne"
         + "\nOccitanie"
         
-        if item.codesPostaux.count == 1 {
+        if city.codesPostaux.count == 1 {
             postalCode.value = "Code Postal: "
-            + "\n\(item.codesPostaux[0])"
+            + "\n\(city.codesPostaux[0])"
         } else {
             postalCode.value = "Codes Postaux: "
             + "\n\(postalCodeList)"
         }
-       
-        population.value = "Population: " + String(item.population) + " Habitants"
-        surface.value = "Surface: " + String(item.surface) + " m²"
+        population.value = "Population: " + String(city.population) + " Habitants"
+        surface.value = "Surface: " + String(city.surface) + " m²"
     }
-    
-//    func loadCityData() {
-//        let postalCodeList = item[entityIndexPath].codesPostaux.joined(separator: "\n")
-//
-//        cityName.value = item[entityIndexPath].nom.uppercased()
-//        + "\n"
-//        + "\nHaute-Garonne"
-//        + "\nOccitanie"
-//
-//        if item[entityIndexPath].codesPostaux.count == 1 {
-//            postalCode.value = "Code Postal: "
-//            + "\n\(item[entityIndexPath].codesPostaux[0])"
-//        } else {
-//            postalCode.value = "Codes Postaux: "
-//            + "\n\(postalCodeList)"
-//        }
-//
-//        population.value = "Population: " + String(item[entityIndexPath].population) + " Habitants"
-//        surface.value = "Surface: " + String(item[entityIndexPath].surface) + " m²"
-//    }
-    
 }

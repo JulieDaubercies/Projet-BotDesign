@@ -7,14 +7,19 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
-    @IBOutlet var cityNameLabel: UILabel!
-    @IBOutlet var postalCodeLabel: UILabel!
-    @IBOutlet var populationLabel: UILabel!
-    @IBOutlet var surfaceLabel: UILabel!
-    var viewModel = DetailViewModel()
-    var item: MainData!
+class DetailViewController: UIViewController, Storyboarded {
+    
+    // MARK: - Properties
+    
+    @IBOutlet private var cityNameLabel: UILabel!
+    @IBOutlet private var postalCodeLabel: UILabel!
+    @IBOutlet private var populationLabel: UILabel!
+    @IBOutlet private var surfaceLabel: UILabel!
+    private var viewModel = DetailViewModel()
+    var item: MainData?
+    var coordinator: MainCoordinator?
+    
+    // MARK: - Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,4 +40,3 @@ class DetailViewController: UIViewController {
         }
     }
 }
-

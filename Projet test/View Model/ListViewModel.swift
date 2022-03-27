@@ -9,23 +9,20 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-//protocol CitiesNetworkServiceDelegate: AnyObject {
-//    func didCompleteRequest(result: [MainData])
-//}
-
-class ListViewModel {
+final class ListViewModel {
+    
+    // MARK: - Properties
     
     var items = PublishSubject<[MainData]>()
-    
     private var apiCallsService = APICalls()
-   // var delegate: CitiesNetworkServiceDelegate?
+    
+    // MARK: - Method
     
     func launchListOfCities() {
         apiCallsService.getCities { [weak self] result in
             DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let list):
-                   // self?.delegate?.didCompleteRequest(result: list)
                     let products = list
                     self?.items.onNext(products)
                     self?.items.onCompleted()
