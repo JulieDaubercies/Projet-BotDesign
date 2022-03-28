@@ -23,10 +23,10 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func detail() {
+    func detail(city: MainData) {
         let vc = DetailViewController.instantiate()
         vc.coordinator = self
-       // vc.item =
+        vc.item = city
         navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
 final class TableViewController: UITableViewController, Storyboarded {
     
     // MARK: - Properties
@@ -38,16 +39,8 @@ final class TableViewController: UITableViewController, Storyboarded {
             .rx
             .modelSelected(MainData.self)
             .subscribe(onNext: {[weak self] city in
-                self?.coordinator?.detail()
-                
-                // Comment transmettre les données ???
-                
-                
+                self?.coordinator?.detail(city: city)
             }).disposed(by: bag)
         viewModel.launchListOfCities()
     }
 }
-
-//  guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-//  vc.item = city
-//  self?.navigationController?.pushViewController(vc, animated: true)
