@@ -10,45 +10,40 @@ import RxSwift
 import RxCocoa
 
 
-final class TableViewController: UITableViewController, Storyboarded {
+final class TableViewController: UIViewController, Storyboarded {
     
     // MARK: - Properties
     
     private var bag = DisposeBag()
     weak var coordinator: MainCoordinator?
     private let viewModel = ListViewModel()
-    private let searchController = UISearchController(searchResultsController: nil)
-//    private var isSearchBarEmpty: Bool { return searchController.searchBar.text?.isEmpty ?? true }
-//    private var isFiltering: Bool {
-//        return !isSearchBarEmpty
-//    }
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var searchBar: UISearchBar!
     
     // MARK: - Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = nil
-        tableView.delegate = nil
+        self.title = "Villes de la Haute-Garonne"
         viewModel.AlertDelegate = self
         bindTableData()
-        searchBarSettings()
+        bindToSearchValue()
+        searchBar.placeholder = "Toulouse"
     }
     
-    func searchBarSettings() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Toulouse"
-        navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+    func bindToSearchValue() {
+        searchBar.rx.text
+            .bind(to: viewModel.searchValueObserver)
+            .disposed(by: bag)
     }
     
     private func bindTableData() {
-        viewModel.items.bind(to: tableView
-            .rx
-            .items(cellIdentifier: "City", cellType: UITableViewCell.self)) { row, model, cell in
-                cell.textLabel?.text = model.nom
-            }.disposed(by: bag)
+        viewModel.filterModelObservable
+            .bind(to: tableView
+                .rx
+                .items(cellIdentifier: "City", cellType: UITableViewCell.self)) { row, model, cell in
+                    cell.textLabel?.text = model.nom
+                }.disposed(by: bag)
         
         tableView
             .rx
@@ -60,25 +55,8 @@ final class TableViewController: UITableViewController, Storyboarded {
     }
 }
 
-extension TableViewController: UISearchResultsUpdating  {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-     let essai = searchController.searchBar.rx.text.orEmpty
-            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .map { query in
-                self.viewModel.items.filter { city in
-                    city.map { $0.nom }.contains(query.lowercased())
-                }
-            }
-        tableView.reloadData()
-    }
-}
-
 extension TableViewController: DisplayAlert {
     func showAlert(message: String) {
         alert(message: message)
     }
-    
-    
 }

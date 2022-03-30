@@ -18,11 +18,27 @@ final class ListViewModel {
     
     // MARK: - Properties
     
-    var items = PublishSubject<[MainData]>()
-    // var item = PublishRelay <MainData>()
-    
     private var apiCallsService = APICalls()
     var AlertDelegate: DisplayAlert?
+    var items = PublishSubject<[MainData]>()
+    let filterModelObservable: Observable<[MainData]>
+    var searchValueObserver: AnyObserver<String?> { searchValueBehavior.asObserver() }
+    private let searchValueBehavior = BehaviorSubject<String?>(value: "")
+    
+    // MARK: - init
+    
+    init() {
+        filterModelObservable = Observable.combineLatest(
+            searchValueBehavior
+                .map { $0 ?? "" }
+                .startWith("")
+                .throttle(.milliseconds(500), scheduler: MainScheduler.instance),
+            items
+        )
+        .map { searchValue, city in
+            searchValue.isEmpty ? city : city.filter { $0.nom.lowercased().contains(searchValue.lowercased()) }
+        }
+    }
     
     // MARK: - Method
     
@@ -31,11 +47,9 @@ final class ListViewModel {
             DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let list):
-                    let products = list
-                    self?.items.onNext(products)
+                    self?.items.onNext(list)
                     self?.items.onCompleted()
                 case .failure(let error):
-                    print(error)
                     self?.AlertDelegate?.showAlert(message: "\(error)")
                 }
             }
