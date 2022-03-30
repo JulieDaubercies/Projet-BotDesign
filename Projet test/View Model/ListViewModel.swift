@@ -7,13 +7,16 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
+import RxRelay
+//import RxCocoa
 
 final class ListViewModel {
     
     // MARK: - Properties
     
     var items = PublishSubject<[MainData]>()
+    // var item = PublishRelay <MainData>()
+    
     private var apiCallsService = APICalls()
     
     // MARK: - Method
@@ -32,5 +35,4 @@ final class ListViewModel {
             }
         }
     }
-    
 }

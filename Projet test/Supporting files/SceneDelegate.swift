@@ -6,28 +6,33 @@
 //
 
 import UIKit
+import RxSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var coordinator: MainCoordinator?
     var window: UIWindow?
+    private let bag = DisposeBag()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
+        
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
         
         let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
-       coordinator?.start()
-
+        coordinator?
+            .start()
+            .subscribe()
+            .disposed(by: bag)
+        
         appWindow.rootViewController = navController
         appWindow.makeKeyAndVisible()
         
         window = appWindow
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

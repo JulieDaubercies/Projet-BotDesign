@@ -7,20 +7,26 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class MainCoordinator: Coordinator {
     
-    var childCoordinators = [Coordinator]()
-    var navigationController: UINavigationController
+    // MARK: - Properties
     
+   // var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func start() {
+    // MARK: - Methods
+    
+    func start() -> Observable<Void> {
         let vc = TableViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
+        return .never()
     }
     
     func detail(city: MainData) {
