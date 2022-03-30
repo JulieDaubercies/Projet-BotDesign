@@ -67,49 +67,6 @@
             </objects>
             <point key="canvasLocation" x="-123" y="68"/>
         </scene>
-        <!--Villes de la Haute-Garonne-->
-        <scene sceneID="j1c-pa-vsk">
-            <objects>
-                <tableViewController id="SR2-ud-tdP" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="nWS-sv-ivc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="City" textLabel="kEa-A1-Zz3" style="IBUITableViewCellStyleDefault" id="98n-sd-OIC">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="47.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="98n-sd-OIC" id="EQi-8u-LlS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Toulouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kEa-A1-Zz3">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="SR2-ud-tdP" id="DYb-rL-1C3"/>
-                            <outlet property="delegate" destination="SR2-ud-tdP" id="rS9-Em-cU6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Villes de la Haute-Garonne" id="ha0-FY-bpt"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yXb-Fv-6r2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" id="T71-lg-hms">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
-            </objects>
-            <point key="canvasLocation" x="396" y="-680"/>
-        </scene>
         <!--Detail View Controller-->
         <scene sceneID="lcd-tL-Omx">
             <objects>

@@ -1,0 +1,20 @@
+[
+    {
+        "nom": "Agassac",
+        "codesPostaux": [
+            "31230"
+        ],
+        "surface": 959.43,
+        "population": 122,
+        "code": "31001"
+    },
+    {
+        "nom": "Aignes",
+        "codesPostaux": [
+            "31550"
+        ],
+        "surface": 2204.73,
+        "population": 241,
+        "code": "31002"
+    }
+]

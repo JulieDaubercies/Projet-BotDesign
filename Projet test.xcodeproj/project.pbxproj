@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		37AC147427EDA78B00456767 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC147327EDA78B00456767 /* DetailViewModel.swift */; };
 		37AC147627EDA7A200456767 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC147527EDA7A200456767 /* Box.swift */; };
-		37AC147E27EDAEF600456767 /* Projet_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC147D27EDAEF600456767 /* Projet_testTests.swift */; };
 		37AC148D27F0BAEC00456767 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC148C27F0BAEC00456767 /* Coordinator.swift */; };
 		37AC149027F0BBA700456767 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC148F27F0BBA700456767 /* Storyboarded.swift */; };
 		37AC149227F0BCF100456767 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC149127F0BCF100456767 /* MainCoordinator.swift */; };
 		37AC14BE27F4B6CA00456767 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC14BD27F4B6CA00456767 /* AlertController.swift */; };
+		37AC14C027F4FFEB00456767 /* URLProtocolFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC14BF27F4FFEB00456767 /* URLProtocolFake.swift */; };
+		37AC14C227F5007300456767 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC14C127F5007300456767 /* FakeResponseData.swift */; };
+		37AC14C427F500D900456767 /* Villes.json in Resources */ = {isa = PBXBuildFile; fileRef = 37AC14C327F500D900456767 /* Villes.json */; };
+		37AC14C827F5028700456767 /* APICallsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC14C727F5028700456767 /* APICallsTestCase.swift */; };
+		37AC14CA27F5048000456767 /* DetailViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC14C927F5048000456767 /* DetailViewModelTestCase.swift */; };
 		37E8A2C727ED023F00EA7032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E8A2C627ED023F00EA7032 /* AppDelegate.swift */; };
 		37E8A2C927ED023F00EA7032 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E8A2C827ED023F00EA7032 /* SceneDelegate.swift */; };
 		37E8A2CB27ED023F00EA7032 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E8A2CA27ED023F00EA7032 /* DetailViewController.swift */; };
@@ -47,11 +51,15 @@
 		37AC147327EDA78B00456767 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		37AC147527EDA7A200456767 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		37AC147B27EDAEF600456767 /* Projet testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Projet testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		37AC147D27EDAEF600456767 /* Projet_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projet_testTests.swift; sourceTree = "<group>"; };
 		37AC148C27F0BAEC00456767 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		37AC148F27F0BBA700456767 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		37AC149127F0BCF100456767 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		37AC14BD27F4B6CA00456767 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		37AC14BF27F4FFEB00456767 /* URLProtocolFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolFake.swift; sourceTree = "<group>"; };
+		37AC14C127F5007300456767 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		37AC14C327F500D900456767 /* Villes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Villes.json; sourceTree = "<group>"; };
+		37AC14C727F5028700456767 /* APICallsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallsTestCase.swift; sourceTree = "<group>"; };
+		37AC14C927F5048000456767 /* DetailViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTestCase.swift; sourceTree = "<group>"; };
 		37E8A2C327ED023F00EA7032 /* Projet test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projet test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E8A2C627ED023F00EA7032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E8A2C827ED023F00EA7032 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +113,11 @@
 		37AC147C27EDAEF600456767 /* Projet testTests */ = {
 			isa = PBXGroup;
 			children = (
-				37AC147D27EDAEF600456767 /* Projet_testTests.swift */,
+				37AC14BF27F4FFEB00456767 /* URLProtocolFake.swift */,
+				37AC14C127F5007300456767 /* FakeResponseData.swift */,
+				37AC14C727F5028700456767 /* APICallsTestCase.swift */,
+				37AC14C327F500D900456767 /* Villes.json */,
+				37AC14C927F5048000456767 /* DetailViewModelTestCase.swift */,
 			);
 			path = "Projet testTests";
 			sourceTree = "<group>";
@@ -270,6 +282,7 @@
 				TargetAttributes = {
 					37AC147A27EDAEF600456767 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 						TestTargetID = 37E8A2C227ED023F00EA7032;
 					};
 					37E8A2C227ED023F00EA7032 = {
@@ -301,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AC14C427F500D900456767 /* Villes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37AC147E27EDAEF600456767 /* Projet_testTests.swift in Sources */,
+				37AC14C027F4FFEB00456767 /* URLProtocolFake.swift in Sources */,
+				37AC14C827F5028700456767 /* APICallsTestCase.swift in Sources */,
+				37AC14C227F5007300456767 /* FakeResponseData.swift in Sources */,
+				37AC14CA27F5048000456767 /* DetailViewModelTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,15 +481,22 @@
 			baseConfigurationReference = 6FA13B7A57AD19718366A60A /* Pods-Projet testTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9F4H6Q36H;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julieDaubercies.Projet-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Projet test.app/Projet test";
@@ -484,11 +508,17 @@
 			baseConfigurationReference = 1C3749AEF7E01AD04B05ECBC /* Pods-Projet testTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9F4H6Q36H;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julieDaubercies.Projet-testTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
