@@ -29,6 +29,7 @@ final class TableViewController: UITableViewController, Storyboarded {
         super.viewDidLoad()
         tableView.dataSource = nil
         tableView.delegate = nil
+        viewModel.AlertDelegate = self
         bindTableData()
         searchBarSettings()
     }
@@ -72,4 +73,12 @@ extension TableViewController: UISearchResultsUpdating  {
             }
         tableView.reloadData()
     }
+}
+
+extension TableViewController: DisplayAlert {
+    func showAlert(message: String) {
+        alert(message: message)
+    }
+    
+    
 }

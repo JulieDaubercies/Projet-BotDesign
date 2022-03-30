@@ -10,6 +10,10 @@ import RxSwift
 import RxRelay
 //import RxCocoa
 
+protocol DisplayAlert: AnyObject {
+    func showAlert(message: String)
+}
+
 final class ListViewModel {
     
     // MARK: - Properties
@@ -18,6 +22,7 @@ final class ListViewModel {
     // var item = PublishRelay <MainData>()
     
     private var apiCallsService = APICalls()
+    var AlertDelegate: DisplayAlert?
     
     // MARK: - Method
     
@@ -31,6 +36,7 @@ final class ListViewModel {
                     self?.items.onCompleted()
                 case .failure(let error):
                     print(error)
+                    self?.AlertDelegate?.showAlert(message: "\(error)")
                 }
             }
         }
