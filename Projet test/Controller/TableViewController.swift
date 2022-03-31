@@ -25,10 +25,10 @@ final class TableViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Villes de la Haute-Garonne"
+        searchBar.placeholder = "Toulouse"
         viewModel.AlertDelegate = self
         bindTableData()
         bindToSearchValue()
-        searchBar.placeholder = "Toulouse"
     }
     
     func bindToSearchValue() {
@@ -38,7 +38,7 @@ final class TableViewController: UIViewController, Storyboarded {
     }
     
     private func bindTableData() {
-        viewModel.filterModelObservable
+        viewModel.displayModelObservable
             .bind(to: tableView
                 .rx
                 .items(cellIdentifier: "City", cellType: UITableViewCell.self)) { row, model, cell in
@@ -51,7 +51,6 @@ final class TableViewController: UIViewController, Storyboarded {
             .subscribe(onNext: {[weak self] city in
                 self?.coordinator?.detail(city: city)
             }).disposed(by: bag)
-        viewModel.launchListOfCities()
     }
 }
 

@@ -20,15 +20,16 @@ final class ListViewModel {
     
     private var apiCallsService = APICalls()
     var AlertDelegate: DisplayAlert?
-    var items = PublishSubject<[MainData]>()
-    let filterModelObservable: Observable<[MainData]>
+    let displayModelObservable: Observable<[MainData]>
     var searchValueObserver: AnyObserver<String?> { searchValueBehavior.asObserver() }
     private let searchValueBehavior = BehaviorSubject<String?>(value: "")
     
     // MARK: - init
     
     init() {
-        filterModelObservable = Observable.combineLatest(
+        let items = PublishSubject<[MainData]>()
+        
+        displayModelObservable = Observable.combineLatest(
             searchValueBehavior
                 .map { $0 ?? "" }
                 .startWith("")
@@ -38,17 +39,13 @@ final class ListViewModel {
         .map { searchValue, city in
             searchValue.isEmpty ? city : city.filter { $0.nom.lowercased().contains(searchValue.lowercased()) }
         }
-    }
-    
-    // MARK: - Method
-    
-    func launchListOfCities() {
+        
         apiCallsService.getCities { [weak self] result in
             DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let list):
-                    self?.items.onNext(list)
-                    self?.items.onCompleted()
+                    items.onNext(list)
+                    items.onCompleted()
                 case .failure(let error):
                     self?.AlertDelegate?.showAlert(message: "\(error)")
                 }
