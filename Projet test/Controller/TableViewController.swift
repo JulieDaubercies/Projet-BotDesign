@@ -13,6 +13,7 @@ import RxCocoa
 final class TableViewController: UIViewController, Storyboarded {
     
     // MARK: - Properties
+    //
     
     private var bag = DisposeBag()
     weak var coordinator: MainCoordinator?
