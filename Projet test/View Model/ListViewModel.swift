@@ -20,9 +20,12 @@ final class ListViewModel {
     
     private var apiCallsService = APICalls()
     var AlertDelegate: DisplayAlert?
+    
     let displayModelObservable: Observable<[MainData]>
     var searchValueObserver: AnyObserver<String?> { searchValueBehavior.asObserver() }
     private let searchValueBehavior = BehaviorSubject<String?>(value: "")
+    
+    var citySelected = PublishSubject<MainData>()
     
     // MARK: - init
     

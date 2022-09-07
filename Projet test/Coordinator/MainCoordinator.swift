@@ -13,7 +13,7 @@ class MainCoordinator: Coordinator {
     
     // MARK: - Properties
     
-   // var childCoordinators = [Coordinator]()
+    private let disposeBag = DisposeBag()
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
@@ -21,10 +21,26 @@ class MainCoordinator: Coordinator {
     }
     
     // MARK: - Methods
+
+//     Ancienne version
+//    func start() -> Observable<Void> {
+//        let vc = TableViewController.instantiate()
+//        vc.coordinator = self
+//        navigationController.pushViewController(vc, animated: false)
+//        return .never()
+//    }
     
     func start() -> Observable<Void> {
         let vc = TableViewController.instantiate()
-        vc.coordinator = self
+        let viewModel = ListViewModel()
+        vc.viewModel = viewModel
+        
+        viewModel.citySelected
+            .subscribe(onNext: { [weak self] city in
+                self?.detail(city: city)
+            })
+            .disposed(by: disposeBag)
+
         navigationController.pushViewController(vc, animated: false)
         return .never()
     }

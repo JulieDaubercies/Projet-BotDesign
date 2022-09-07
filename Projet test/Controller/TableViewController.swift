@@ -13,11 +13,10 @@ import RxCocoa
 final class TableViewController: UIViewController, Storyboarded {
     
     // MARK: - Properties
-    //
     
     private var bag = DisposeBag()
     weak var coordinator: MainCoordinator?
-    private let viewModel = ListViewModel()
+    var viewModel = ListViewModel()
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var searchBar: UISearchBar!
     
@@ -49,9 +48,14 @@ final class TableViewController: UIViewController, Storyboarded {
         tableView
             .rx
             .modelSelected(MainData.self)
-            .subscribe(onNext: {[weak self] city in
-                self?.coordinator?.detail(city: city)
-            }).disposed(by: bag)
+            .bind(to: viewModel.citySelected)
+        
+        // ancienne version, coordinator appelé dans le controller (erreur)
+        // .subscribe(onNext: {[weak self] city in
+        //     self?.coordinator?.detail(city: city)
+        //  })
+        
+            .disposed(by: bag)
     }
 }
 
